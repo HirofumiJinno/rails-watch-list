@@ -1,4 +1,9 @@
 <h1><%= @list.name %></h1>
+<% if @list.photo.attached? %>
+  <%= cl_image_tag @list.photo.key, width: 150, crop: :fill %>
+<% else %>
+  <%= image_tag "https://d26jy9fbi4q9wx.cloudfront.net/assets/logo_square-2a2b37a2be341690cc27951815247ac550d17e57b97542a61b92848057aab506.svg" %>
+<% end %>
 <h2>Listed movies:</h2>
 <% @list.bookmarks.each do |bookmark| %>
  <%= bookmark.movie.title %>
@@ -10,3 +15,7 @@
 
 <%= link_to 'Add a movie to this list', new_list_bookmark_path(@list) %>
 <%= link_to 'Home', lists_path %>
+
+<%= link_to list_path(@list), method: :delete, data: { confirm: "Delete #{@list.name}?" } do %>
+  <i class="fa fa-trash" aria-hidden="true"></i>
+<% end %>

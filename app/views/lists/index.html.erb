@@ -1,16 +1,11 @@
 <div class="container">
-  <h1>Lists#index</h1>
-  <p>Find me in app/views/lists/index.html.erb</p>
-
+  <h1>Movie Lists</h1>
   <div class="cards">
     <% @lists.each do |list|  %>
       <%= link_to list_path(list) do %>
-        <div class="card-category">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : image_path('https://d26jy9fbi4q9wx.cloudfront.net/assets/logo_square-2a2b37a2be341690cc27951815247ac550d17e57b97542a61b92848057aab506.svg') %>)">
           <p><%= list.name %></p>
         </div>
-      <% end %>
-      <%= link_to list_path(list), method: :delete, data: { confirm: "Delete #{list.name}?" } do %>
-        <i class="fa fa-trash" aria-hidden="true"></i>
       <% end %>
     <% end %>
   </div>
