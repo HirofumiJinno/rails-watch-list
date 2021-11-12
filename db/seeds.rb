@@ -9,6 +9,7 @@
 puts "Cleaning the db..."
 List.destroy_all
 Bookmark.destroy_all
+Movie.destroy_all
 
 puts 'Creating 15 movies...'
 15.times do
