@@ -1,0 +1,7 @@
+<div class="container">
+  <%= simple_form_for @list do |f| %>
+    <%= f.input :name %>
+    <%= f.submit class: 'btn btn_dark' %>
+  <% end %>
+</div>
+<%= link_to 'home', lists_path %>

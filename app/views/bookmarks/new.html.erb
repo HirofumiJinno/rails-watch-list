@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="col-sm-6">
+    <h2>Add a movie to <%= @list.name %>.</h2>
+    <h3>Listed movies:</h3>
+    <ul>
+      <% @list.bookmarks.each do |bookmark| %>
+        <li><strong><%= bookmark.movie.title %></strong>:<br><%= bookmark.comment %></li>
+        <% end  %>
+    </ul>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.association :movie, include_blank: false %>
+       <%= f.input :comment, include_blank: false %>
+      <%= f.submit 'Add', class: 'btn btn-dark mt-2' %>
+    <% end %>
+  </div>
+  <%= link_to "Home", lists_path %>
+</div>
