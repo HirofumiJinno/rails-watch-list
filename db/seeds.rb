@@ -23,7 +23,7 @@ puts "...created #{Movie.count} lists"
 puts 'Creating 30 lists...'
 30.times do
   List.create!(
-    name: "#{Faker::Emotion.noun} #{rand(1..10) - {rand(1..10)}"
+    name: "#{Faker::Emotion.noun} #{rand(1..10)} - #{rand(1..10)}"
   )
 end
 puts "...created #{List.count} lists"
