@@ -10,26 +10,26 @@ puts "Cleaning the db..."
 List.destroy_all
 Bookmark.destroy_all
 
-puts 'Creating 20 movies...'
-20.times do
+puts 'Creating 10 movies...'
+10.times do
   Movie.create!(
-    title: Faker::Movie.title,
+    title: "#{Faker::Movie.title} - #{rand(1..10)}",
     overview: Faker::Movie.quote,
     rating: rand(1.0..10.0)
   )
 end
 puts "...created #{Movie.count} lists"
 
-puts 'Creating 10 lists...'
-10.times do
+puts 'Creating 30 lists...'
+30.times do
   List.create!(
-    name: "#{Faker::Tea.variety} #{rand(1..10)}"
+    name: "#{Faker::Emotion.noun} #{rand(1..10) - {rand(1..10)}"
   )
 end
 puts "...created #{List.count} lists"
 
-puts 'Creating 20 bookmarks...'
-20.times do
+puts 'Creating 50 bookmarks...'
+50.times do
   Bookmark.create!(
     movie: Movie.all.sample,
     list: List.all.sample,
